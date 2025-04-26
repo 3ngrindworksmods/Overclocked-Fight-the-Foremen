@@ -89,6 +89,6 @@ func on_round_started(actions: Array[BattleAction]) -> void:
 				attack.summary = "The Foreman Retaliates!"
 				attack.user = traffic_man
 				attack.targets = [Util.get_player()]
-				attack.damage += traffic_man.level / 2 * 1.5
+				attack.damage += traffic_man.level / 2 * 2 # yes i just did that
 				manager.append_action(attack)
 				return

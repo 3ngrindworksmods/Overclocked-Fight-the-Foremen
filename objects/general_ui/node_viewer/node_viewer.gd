@@ -41,8 +41,6 @@ func adjust_cam():
 		return
 
 	var aabb := NodeGlobals.calculate_spatial_bounds(node, false)
-
-	# Calculate model camera size
 	var node_size: Vector3 = aabb.size * node.scale
 	var cam_size: float = max(node_size.x, node_size.y) / 2.0 * 1.2
 	camera.size = cam_size * 2.0 * (1.1 + camera_position_offset)
@@ -52,8 +50,8 @@ func adjust_cam():
 	#I have NO idea what I am doing but its 4 hours till 12am 
 	#var center := node.global_transform.origin
 	camera.position = center
-	if "head_cone" in node:
-		center.y += node_size.y * 7.07  
+
+		  
 	camera.position = center
 	camera.position.z -= 10.0
 

@@ -14,6 +14,6 @@ mini_icon_color = Color(1, 1, 1, 1)
 mini_icon_scale = 1.0
 visible = true
 description = "This is a Status Effect"
-status_name = "Gag Requirement"
+status_name = "Green Lighter"
 is_foreman_effect = false
 id = 7014

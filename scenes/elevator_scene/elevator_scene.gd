@@ -91,7 +91,7 @@ func get_next_floors() -> void:
 
 func final_boss_time_baby() -> void:
 	var final_floor := FINAL_FLOOR_VARIANT.duplicate()
-	final_floor.level_range = Vector2i(8, 12)
+	final_floor.level_range = Vector2i(10, 12)
 	next_floors = [final_floor]
 	$ElevatorUI.floors = next_floors
 	$ElevatorUI.set_floor_index(0)
@@ -138,7 +138,7 @@ func add_normal_floor(floor_variants) -> void:
 		var new_floor: FloorVariant = Util.universal_load(FLOOR_VARIANT_PATH + random_floor).duplicate()
 		var anom_array = new_floor.get_no_anomaly()
 		new_floor.scripted_details(anom_array)
-		if Util.floor_number >= 3: new_floor.floor_name = " Overclocked Fight The Foremen"
+		if Util.floor_number >= 3: new_floor.floor_name = "Overclocked Fight The Foremen"
 		while not new_floor.reward:
 			new_floor.randomize_item()
 		next_floors.append(new_floor)

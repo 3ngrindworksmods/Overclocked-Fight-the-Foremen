@@ -38,6 +38,7 @@ var current_round := 0
 var has_moved : Array[Node3D] = []
 var current_round_combo_data := {} # Dictionary to track gag types and targets per round
 var combo_damage_actions := [] # Stores combo damage actions to process
+var have_combo_damage = false
 var bellow = false
 var start_cog_size = 0
 
@@ -354,6 +355,14 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 		ignore_current_action = true
 
 	var stat: String = 'hp'
+	var should_crit := false
+	# Is player action
+	if (current_action and current_action.user and current_action.user is Player):
+		# Check for crit on non-player target
+		if (not target is Player) and amount > 0:
+			should_crit = roll_for_crit(current_action)
+			if should_crit:
+				amount = roundi(amount * battle_stats[current_action.user].get_stat("crit_mult"))
 
 	if not ignore_current_action:
 		amount = get_damage(amount, current_action, target)
@@ -372,14 +381,14 @@ func affect_target(target: Node3D, amount: float, ignore_current_action := false
 	# Get the stat's current value
 	var pre_stat = target.stats.get(stat)
 
-	var should_crit := false
+	#var should_crit := false
 	# Is player action
-	if (current_action and current_action.user and current_action.user is Player):
-		# Check for crit on non-player target
-		if (not target is Player) and amount > 0:
-			should_crit = roll_for_crit(current_action)
-			if should_crit:
-				amount = roundi(amount * battle_stats[current_action.user].get_stat("crit_mult"))
+	#if (current_action and current_action.user and current_action.user is Player):
+	#	# Check for crit on non-player target
+	#	if (not target is Player) and amount > 0:
+	#		should_crit = roll_for_crit(current_action)
+	#		if should_crit:
+	#			amount = roundi(amount * battle_stats[current_action.user].get_stat("crit_mult"))
 
 	# Check for healing effectiveness on player target
 	if target is Player and amount < 0:
@@ -870,11 +879,11 @@ func create_v2_cog(cog: Cog) -> Cog:
 func create_v1_5_skele_cog(cog: Cog) -> Cog:
 	var new_cog: Cog = load('res://objects/cog/cog.tscn').instantiate()
 	new_cog.skelecog_chance = 0
-	new_cog.level = cog.level - 2
+	new_cog.level = cog.level - ceil(cog.level * 0.2)
 	new_cog.virtual_cog = true
 	#cog.dna.is_v2 = false
-	new_cog.dna = cog.dna
-	#new_cog.v2 = false
+	#new_cog.foreman = true
+	new_cog.dna = Globals.foreman_dna
 	battle_node.add_child(new_cog)
 	new_cog.global_transform = cog.global_transform
 	new_cog.body.set_color(Color("00a2ff"))
@@ -928,6 +937,9 @@ func crowd_control(cog: Cog) -> void:
 	cog.special_attack = true
 	var attack := get_cog_attack(cog)
 	cog.special_attack = false
+	if not attack == null:
+		attack.attack_lines = ["Do you have any idea how much health I have left"]
+		attack.action_name = "Basic Math"
 	
 	if not attack == null:
 		if round_actions.size() > 0: 

@@ -42,6 +42,7 @@ var window_focused := true
 var battlesonfloor = 0
 var final_boss = false  # NOT BEST PRACTICES BUT IM RELEASING THIS TODAY, ON THIS DAY, TODAY
 var battles_encountered = 0
+var survive_the_foreman = false
 var floor_number := -1:
 	set(x):
 		floor_number = x
@@ -296,6 +297,8 @@ func make_boss_chests(holder_node: Node3D, pos_node: Node3D) -> void:
 				if player.stats.money < 10:
 					chest.override_item = RandomService.array_pick_random('boss_drops', load("res://objects/items/pools/jellybeans.tres").items)
 			4:
-				print("5th chest")
+				if Util.floor_number == 5:
+					if not Util.get_player().stats.has_item("Pilot Hat"):
+						chest.override_item = load("res://objects/items/resources/accessories/hats/pilot_hat.tres")
 
 #endregion

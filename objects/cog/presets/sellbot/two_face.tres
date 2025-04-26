@@ -31,6 +31,7 @@ status_effects = Array[ExtResource("8_gireu")]([])
 is_mod_cog = false
 is_admin = false
 health_mod = 1.0
+is_v2 = false
 battle_phrases = Array[String](["Two heads are better than one.", "It takes two to tango, you wanna tango?", "Are you ready to face your doom?", "Which face would you like to defeat you?", "Prepare to face your worst nightmare.", "Face it, I'm better than you.", "I'm 'two' much for you.", "You don't know who you're facing.", "It's time to face-off!", "You're in for two times the trouble.", "You better face up to defeat."])
 external_assets = {
 &"head_model": "",

@@ -33,6 +33,7 @@ const TOON_UNLOCK_ORDER : Array[PlayerCharacter] = [
 ## Global Cog Pools
 var GRUNT_COG_POOL := LazyLoader.defer("res://objects/cog/presets/pools/grunt_cogs.tres")
 var MOD_COG_POOL := LazyLoader.defer("res://objects/cog/presets/pools/mod_cogs.tres")
+var foreman_dna := load("res://objects/cog/presets/sellbot/the_mingler.tres")
 
 func add_standard_cog(cog_dna: CogDNA) -> void:
 	GRUNT_COG_POOL.load().cogs.append(cog_dna)
@@ -419,7 +420,7 @@ var DUST_CLOUD := LazyLoader.defer('res://objects/props/etc/dust_cloud/dust_clou
 var lawbot_puzzles := {
 	avoid_skulls = PuzzleAvoidSkulls.new(),
 	matching = PuzzleMatching.new(),
-	skull_finder = PuzzleSkullFinder.new(),
+	#skull_finder = PuzzleSkullFinder.new(),
 	drag_three = PuzzleDragThree.new(),
 	run = PuzzleRun.new(),
 }

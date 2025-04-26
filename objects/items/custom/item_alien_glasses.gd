@@ -15,6 +15,7 @@ func setup() -> void:
 	BattleService.s_action_started.connect(on_action_started)
 	BattleService.s_battle_started.connect(refresh_turns)
 	BattleService.s_round_ended.connect(on_round_ended)
+	BattleService.s_battle_ending.connect(on_battle_ending)
 
 func on_action_started(action: BattleAction) -> void:
 	if action is ToonAttack:
@@ -22,20 +23,24 @@ func on_action_started(action: BattleAction) -> void:
 		if turns_used % activate_turn == 0:
 			if action.targets.size() == 1:
 				var bonus_dmg: int 
-				bonus_dmg =  int(action.targets[0].stats.hp * 0.1)
-				action.damage += bonus_dmg
+				#bonus_dmg =  int(action.targets[0].stats.hp * 0.1)
+				#action.damage += bonus_dmg
+				action.targets[0].stats.hp -= int(action.main_target.stats.hp * 0.15)
 			else:
 				if action.main_target != null:
-						action.main_target.stats.hp -= int(action.main_target.stats.hp * 0.1)
+						action.main_target.stats.hp -= int(action.main_target.stats.hp * 0.15)
 			action.store_boost_text("Strange Energy!", Color(0.4, 1.0, 0.7))  # Alien green
 
 func refresh_turns() -> void:
+	#irrelevant
 	turns_used = 0
 	
 func on_round_ended(manager: BattleManager) -> void:
 	var turns_remaining_in_cycle = activate_turn - (turns_used % activate_turn)
 	var activation_turn_next_round = turns_remaining_in_cycle - 1     
-	if turns_remaining_in_cycle <= Util.get_player().stats.max_turns:
+	if turns_remaining_in_cycle <= Util.get_player().stats.turns:
 		var dict = {}
 		dict[activation_turn_next_round] = "Base damage on the main target increased by 10% of target's hp"
 		manager.battle_ui.s_item_effect.emit(dict)
+func  on_battle_ending() -> void:
+	turns_used = 0

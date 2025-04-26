@@ -13,7 +13,8 @@ icon_scale = 1.0
 mini_icon_color = Color(1, 1, 1, 1)
 mini_icon_scale = 1.0
 visible = true
-description = "TECHBOT TECHBOT TECHBOT TECHBOT TECHBOT TECHBOT TECHBOT"
+description = "The first department to push the cog combat system
+And the first cog to attack you"
 status_name = "Archaic Techbot"
 is_foreman_effect = false
 id = 0

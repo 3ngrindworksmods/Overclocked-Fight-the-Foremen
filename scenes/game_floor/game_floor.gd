@@ -100,13 +100,14 @@ func generate_floor() -> void:
 		battle_ratio = 0.55 + (0.1 * float(RandomService.randi_channel('battle_ratio') % 2))
 		room_count = room_count * 1.3
 	else: battle_ratio = 0.4 + (0.1 * float(RandomService.randi_channel('battle_ratio') % 3))
+	room_count = 4 # remove later
 	var total_rooms = int((room_count - 2) / 2)
 	var total_battles := int(total_rooms * battle_ratio)
 	#print("battle ratio: ", battle_ratio)
 	#print("total batlles:", total_battles)
 	rooms_remaining = [total_battles, total_rooms - total_battles]
 
-	if floor_rooms.special_rooms and RandomService.randf_channel('room_logic') > 0.001: # was 0.8 guarantted special room
+	if floor_rooms.special_rooms and RandomService.randf_channel('room_logic') > 10.001: # was 0.8 guarantted special room
 		# 50% chance to add a "special room" to the pool
 		var sr_idx := RandomService.randi_range_channel('room_logic', 1, floor_rooms.special_rooms.size()) - 1
 		print('Adding special room: %s' % floor_rooms.special_rooms[sr_idx].room.get_state().get_node_name(0))
@@ -154,6 +155,8 @@ func generate_floor() -> void:
 	# Set the proper default bg music
 	if not floor_rooms.background_music.is_empty():
 		AudioManager.set_default_music(floor_rooms.background_music[RandomService.randi_channel('true_random') % floor_rooms.background_music.size()])
+		if floor_variant.floor_name == "The Factory":
+			if Util.floor_number < 4: AudioManager.set_default_music(load('res://audio/music/installer.ogg'))
 
 func get_random_connector_room() -> PackedScene:
 	return floor_rooms.connectors[RandomService.randi_channel('true_random') % floor_rooms.connectors.size()]
@@ -300,6 +303,7 @@ func player_out_of_bounds(player : Player) -> void:
 	player.fall_in(true)
 
 func technical_debt_music() -> void:
+	print(floor_variant.floor_name)
 	if floor_rooms.battle_music.size() >= 3:
 		if Util.floor_number <= 3:
 			floor_rooms.battle_music = [floor_rooms.battle_music[0]]

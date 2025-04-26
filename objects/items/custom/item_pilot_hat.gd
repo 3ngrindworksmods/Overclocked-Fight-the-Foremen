@@ -14,7 +14,7 @@ func on_load(_item: Item) -> void:
 	setup()
 
 func setup() -> void:
-	BattleService.s_battle_started.connect(refresh_turns)
+	BattleService.s_battle_ending.connect(on_battle_ending)
 	BattleService.s_action_started.connect(on_action_started)
 	BattleService.s_action_finished.connect(on_action_finished)
 	BattleService.s_round_ended.connect(on_round_ended)
@@ -46,3 +46,6 @@ func on_round_ended(manager: BattleManager) -> void:
 		manager.battle_ui.s_damage_drifted.emit(dict)
 		print(activation_turn_next_round)
 	print(activation_turn_next_round)
+	
+func on_battle_ending() -> void:
+	turns_used = 0

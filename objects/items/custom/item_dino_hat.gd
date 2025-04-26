@@ -19,7 +19,7 @@ func setup() -> void:
 	last_player_hp = player.stats.hp
 
 func on_action_started(action: BattleAction) -> void:
-	if action is CogAttack and action.ActionTarget.SELF:
+	if action is CogAttack and not action.ActionTarget.SELF:
 		if Util.get_player().stats.hp == Util.get_player().stats.max_hp:
 			action.damage = action.damage * 0.50
 			action.store_boost_text("Multiscale!", Color(0.466, 0.663, 0.935))

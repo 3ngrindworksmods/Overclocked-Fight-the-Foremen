@@ -30,16 +30,10 @@ func set_cog(cog: Cog):
 	hp_label.show()
 	hp_label.text = str(cog.stats.hp) + '/' + str(cog.stats.max_hp)
 	#var cop =  cog.dna.get_head()
-	#var cop =  cog.head_node
-	#var head: Node3D = cop
-	#var head: Node3D = cog.test_head.duplicate()
-	if cog.foreman:
-		head = cog.body.duplicate()
-		head.scale = Vector3(0.119,0.119,0.119)
-	else:
-		head = cog.dna.get_head()
-		if not cog.dna.head_scale.is_equal_approx(Vector3.ONE * cog.dna.head_scale.x):
-			head.scale = cog.dna.head_scale
+	head = cog.dna.get_head()
+	if cog.foreman: cog.dna.head_scale = cog.dna.head_scale * 0.9
+	if not cog.dna.head_scale.is_equal_approx(Vector3.ONE * cog.dna.head_scale.x):
+		head.scale = cog.dna.head_scale
 	face.node = head
 
 	if not BattleService.ongoing_battle:

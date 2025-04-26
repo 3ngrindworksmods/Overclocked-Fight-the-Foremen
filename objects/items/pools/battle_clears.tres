@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://d0n6coya2868f" path="res://objects/items/resources/passive/flower_treasure.tres" id="8_53r3f"]
 [ext_resource type="Resource" uid="uid://bd5d562nvcvr2" path="res://objects/items/resources/passive/light_blue_jellybean.tres" id="8_cutad"]
 [ext_resource type="Resource" uid="uid://bvukmcjmx00ho" path="res://objects/items/resources/passive/toonups/lipstick.tres" id="11_4ge2c"]
-[ext_resource type="Resource" uid="uid://cpk24jes1t7we" path="res://objects/items/resources/passive/ice_cream_treasure.tres" id="11_odrti"]
+[ext_resource type="Resource" uid="uid://c8yh80vqngv1b" path="res://objects/items/resources/passive/music_treasure.tres" id="11_odrti"]
 [ext_resource type="Resource" uid="uid://c5cavaivrrvb" path="res://objects/items/resources/passive/toonups/feather.tres" id="12_m08qa"]
 [ext_resource type="Resource" uid="uid://cp2b6gwnfjlib" path="res://objects/items/resources/passive/toonups/bamboo_cane.tres" id="13_qb5pl"]
 

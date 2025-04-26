@@ -90,6 +90,9 @@ func randomize_objective() -> void:
 		quotaf /= 4.0
 	else:
 		quotaf /= 1.15
+	# reduce if gamemode is survive the foremen
+	if Util.survive_the_foreman:
+		quotaf /= 2
 	
 	# Level minimum objectives
 	if RandomService.randi_channel('cog_quest_types') % 3 == 0:

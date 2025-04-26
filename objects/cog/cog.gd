@@ -38,7 +38,7 @@ var attacks : Array[CogAttack]
 @export var foreman := false #change to TRUE
 @export var fusion_chance := 0
 @export var virtual_cog := false
-@export var techbot := false #change to TRUE
+@export var techbot := false 
 @export var v2 := false
 @export var v1_5 := false
 @export var health_mod := 1.0
@@ -230,10 +230,11 @@ func roll_for_dna() -> void:
 	if foreman: 
 		dna = pool.cogs[ pool.cogs.size() - 2]
 		skelecog = true
-	if not foreman:
+	if not foreman and Util.floor_number < 4:
 		if dna == pool.cogs[ pool.cogs.size() - 2]:
 			print("changed a mingler into a two face 😭")
 			dna = pool.cogs[ pool.cogs.size() - 3]
+	#dna = Globals.foreman_dna
 	dna = dna.duplicate()
 
 func get_attacks() -> Array[CogAttack]:
@@ -274,7 +275,7 @@ func set_up_stats() -> void:
 	if v2: new_text += " v2.0"
 	if dna.is_mod_cog: new_text += '\nProxy'
 	if dna.is_admin: new_text += '\nAdministrator'
-	#if not dna.is_mod_cog: dna.scale *= randf_range(1, 1.6)
+	#this runs afer initial dna but it can cause funny flunky / v1.5 foremen
 	dna.scale *= randf_range(1, 1.6)
 
 	if foreman: body.set_color(Color(0.867, 0.627, 0.867))
@@ -349,6 +350,8 @@ func construct_cog():
 	
 	head_node = body.head_node
 	head_node.scale = Vector3(0.5, 0.5, 0.5)
+	#if foreman: 
+	head_node.scale *= 1.4
 	#test_head = body.head_cone
 	#dna.head = body.head_node
 

@@ -5,20 +5,88 @@
 [resource]
 script = ExtResource("1_or0hp")
 release_version = "v1.0.4"
-notes = "[TITLE]Proxy Cogs
-A new proxy Cog has appeared in Cog HQ
-[TITLE]Bosses
-Reduced the amount of static decreased by defeating Slendercog
+notes = "[TITLE]Foremen
+On Floors 4–5, all grunt cogs outside of the Chartist battle are replaced with the Factory Foreman
+Foremen can receive the Overcharged status effect
+Overcharged: When a cog’s HP is equal to or greater than 150% of its max HP, its attack is increased by 50%
+All Foremen have the Worker’s Compensation cheat
+Worker’s Compensation: When a cog in battle is defeated, all Foremen regain - HP equal to 83% of their max HP and gain a 25% damage boost
+If sound is used on a Foreman and the Foreman survives, the Worker’s Compensation cheat is triggered
+All Foremen that spawn will have a random battle ability (cheat)
+Foreman Cheats:
+Annoying Foreman
+Archaic Techbot
+Beneficiary
+Cursed Foreman
+Damage Drift
+Drop Immunity
+Foreman v1.5
+Green Lighter
+Larynx
+Lure Immunity
+Rebalance
+Shield
+Troll Foreman
+[TITLE]Penthouse
+Grunt cogs are replaced with Foremen selected from a specific pool of cheats
+Foremen will always spawn after the first round, even without Union Buster
+Modified elevator trigger conditions
+Director Cog level: 20 → 24
+Director HP modifier: 4.87 → 4.615
+WhistleBlower no longer disables throw gag point regeneration in the standard Executive Office
+Traffic Manager no longer bans the throw gag track in the standard Executive Office
+[TITLE]Anomalies
+4 new negative anomalies:
+Cog Damage Up
+Bull Market
+Essence of the Traffic Manager
+Gag Immunities
+Essence of the Traffic Manager and Gag Immunities will not appear on floors with randomly generated anomalies
+Floors 3–5 will have additional selectable floors with pre-generated anomaly combinations
+Reorganization: Trap will now always appear before Lure in the gag order
+[TITLE]Floor Bosses
+Phase 1 of Goon Boss: Half of the virtual cogs will have 2 gag immunity status effects
+Phase 2 of Goon Boss: All virtual cogs will have 2 gag immunity status effects
+After Floor 3, the Chartist becomes lim_(x→0) (sin(x)/x) – 1 percent stronger
+[TITLE]Items
+Added Alien Glasses (3 stars)
+Added Dino Hat (3 stars)
+Added Pilot Hat (4 stars)
+Added Plane Wings (4 stars)
+Bat Wings: Throw self-heal boost reduced from 10 → 5
+Big Weight: Defense boost increased from 0% → 5%
+[TITLE]General Game Rebalancing
+Cog Level Ranges:
+   Floor 1: [2, 5] → [4, 5]
+   Floor 2: [3, 7] → [6, 7]
+   Floor 3: [5, 9] → [8, 9]
+   Floor 4: [7, 12] → [10, 11]
+   Floor 5: [8, 14] → [12, 14]
+   Penthouse: [8, 12] → [10, 12]
+Battles with only two cogs may have their level increased based on the floor number
+Adjusted Bessie’s auto-drop formula: minimum drop level increases by 1 starting on Floor 2
+Adjusted gag frame reward rate
+Toontask-specific cogs are now 2.25x more likely to appear
+Certain accessories removed from the reward pool for Floors 0–Penthouse
+Modified battle rewards
+Winning cog battles that start with 4 cogs before Floor 4 grants an extra chest
+The Fedora has been DELETED from all item pools
+Floors 0–5 now contain a preset chest at the entrance
+Starting from Floor 2, five chests will spawn instead of four
+Proxies are 50% more likely to appear on Floors 1–3
+Max proxies per floor increased
+[TITLE]General Battle Mechanics
+Using the same gag track multiple times in a round triggers combo damage
+Combo damage = total base damage of gag type × combo damage multiplier
+Default combo damage multiplier: 20%, Sound: 10%, Drop: 30%
+Drop Aftershock is not affected by combo damage by default
+[TITLE]Toontasks
+At the start of each floor, the player’s toontask reroll amount is set to 4
+Slightly lowered task requirements
+Adjusted toontask rewards
 [TITLE]Tweaks
-Added new heads for Downsizer/ Bean Counter & Bloodsucker / Mover & Shaker
-Added some fun new textures to the Cog Creator
-Adjusted the size of the Organic Gags anomaly icon
-Increased the time allotted for the 6x6 mole stomp game in the Cog Golf Course
-[TITLE]Bugfixes
-Fixed elevator scene showing a blank tip
-Fixed Custom Cog Head scaling
-Fixed Union Buster's Patches not being present in previous patch notes
-Fixed Union Buster's Contract Limit Boost applying a damage down instead of a damage up
-Fixed a Crash that occurred when a custom Cog included external suit textures
-Fixed a potential softlock in the Sound gag movie
-Fixed a camera angle mishap in the Slendercog Boss fight"
+Battle music will now cycle between available songs in facilities with multiple battle themes
+When sad, returning to the menu will not delete the save file
+[TITLE]Bug Fixes
+Knocking back a group-lured cog now correctly removes the damage nerf
+"

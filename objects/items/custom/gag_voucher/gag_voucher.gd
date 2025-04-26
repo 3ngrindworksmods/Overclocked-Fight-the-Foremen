@@ -26,7 +26,7 @@ func setup(item: Item):
 			player = await Util.s_player_assigned
 		
 		for track in player.stats.gags_unlocked.keys():
-			tracks.append(track)
+			if track == "Sound" and Util.floor_number < 3:  tracks.append(track)
 		
 		if tracks.is_empty():
 			gag_track = player.stats.gags_unlocked.keys()[RandomService.randi_channel('gag_vouchers')%player.stats.gags_unlocked.keys().size()]

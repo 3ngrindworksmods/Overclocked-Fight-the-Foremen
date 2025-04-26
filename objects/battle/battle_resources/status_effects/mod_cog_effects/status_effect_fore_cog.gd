@@ -36,11 +36,6 @@ func apply() -> void:
 		mod_effect.target = target
 		var forecharge = overchaged.duplicate()
 		forecharge.target = target
-		#print("mod effect:")
-		#print(mod_effect)
-		#var saproperties = mod_effect.get_property_list()
-		#if mod_effect.resource_path: print("resource path: ", mod_effect.resource_path)
-		#print("target:")
-		#print(target)
+		print("forecog ability: ", mod_effect.get_status_name())
 		manager.add_status_effect(forecharge)
 		manager.add_status_effect(mod_effect)
