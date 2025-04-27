@@ -100,7 +100,6 @@ func generate_floor() -> void:
 		battle_ratio = 0.55 + (0.1 * float(RandomService.randi_channel('battle_ratio') % 2))
 		room_count = room_count * 1.3
 	else: battle_ratio = 0.4 + (0.1 * float(RandomService.randi_channel('battle_ratio') % 3))
-	room_count = 4 # remove later
 	var total_rooms = int((room_count - 2) / 2)
 	var total_battles := int(total_rooms * battle_ratio)
 	#print("battle ratio: ", battle_ratio)

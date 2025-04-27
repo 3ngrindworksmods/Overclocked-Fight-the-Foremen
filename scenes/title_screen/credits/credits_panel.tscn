@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://bj1y1uiss30dg" path="res://scenes/title_screen/credits/icons/icon_john.png" id="18_b78ew"]
 [ext_resource type="Texture2D" uid="uid://ds2d6m1x2dare" path="res://scenes/title_screen/credits/icons/icon_stuck.jpg" id="18_jfa0w"]
 [ext_resource type="Texture2D" uid="uid://8xbitr75p1tp" path="res://scenes/title_screen/credits/icons/icon_evh.jpg" id="19_12m3w"]
+[ext_resource type="Texture2D" uid="uid://d21banrful2pf" path="res://scenes/title_screen/credits/icons/clash_logo.jpg" id="19_3na3w"]
+[ext_resource type="Texture2D" uid="uid://dmepyuf61h3el" path="res://scenes/title_screen/credits/icons/ods_logo.jpg" id="19_3nb3w"]
 [ext_resource type="Texture2D" uid="uid://2irere7p5yay" path="res://scenes/title_screen/credits/icons/icon_you.png" id="22_x0h0m"]
 [ext_resource type="PackedScene" uid="uid://b0d1er4oqiqcn" path="res://objects/general_ui/general_button/general_button.tscn" id="23_dkcqs"]
 [ext_resource type="Texture2D" uid="uid://cfrtoxhs6fotd" path="res://scenes/title_screen/credits/icons/icon_boots.jpg" id="23_m1mdq"]
@@ -346,6 +348,18 @@ icon = ExtResource("19_12m3w")
 name = "Toontown: Event Horizon"
 role = "Cog Rigs"
 
+[sub_resource type="Resource" id="Resource_3naur"]
+script = ExtResource("3_ksngi")
+icon = ExtResource("19_3na3w")
+name = "Toontown: Corporate Clash"
+role = "Created the 2022 Overclocked Find the Foreman Gamemode"
+
+[sub_resource type="Resource" id="Resource_3nbur"]
+script = ExtResource("3_ksngi")
+icon = ExtResource("19_3nb3w")
+name = "Toontown: Operation Dessert Storm"
+role = "Cashbot Mint Battle Music"
+
 [sub_resource type="Resource" id="Resource_daahu"]
 script = ExtResource("3_ksngi")
 icon = ExtResource("17_i8d8j")
@@ -414,7 +428,7 @@ offset_right = 254.0
 offset_bottom = 260.0
 pivot_offset = Vector2(254, 260)
 script = ExtResource("2_3oeyj")
-credits = Array[ExtResource("3_ksngi")]([SubResource("Resource_ttvt2"), SubResource("Resource_7jidy"), SubResource("Resource_kqonq"), SubResource("Resource_pbofr"), SubResource("Resource_2m611"), SubResource("Resource_1oxjh"), SubResource("Resource_hdogm"), SubResource("Resource_dib10"), SubResource("Resource_7gmnw"), SubResource("Resource_7hcke"), SubResource("Resource_5m0kl"), SubResource("Resource_5lw2h"), SubResource("Resource_qhht1"), SubResource("Resource_1g23c"), SubResource("Resource_4b13b"), SubResource("Resource_2bp18"), SubResource("Resource_dgyyg"), SubResource("Resource_coqfa"), SubResource("Resource_w23nx"), SubResource("Resource_ol1pa"), SubResource("Resource_mdpg3"), SubResource("Resource_c5kur")])
+credits = Array[ExtResource("3_ksngi")]([SubResource("Resource_ttvt2"), SubResource("Resource_7jidy"), SubResource("Resource_kqonq"), SubResource("Resource_pbofr"), SubResource("Resource_2m611"), SubResource("Resource_1oxjh"), SubResource("Resource_hdogm"), SubResource("Resource_dib10"), SubResource("Resource_7gmnw"), SubResource("Resource_7hcke"), SubResource("Resource_5m0kl"), SubResource("Resource_5lw2h"), SubResource("Resource_qhht1"), SubResource("Resource_1g23c"), SubResource("Resource_4b13b"), SubResource("Resource_2bp18"), SubResource("Resource_dgyyg"), SubResource("Resource_coqfa"), SubResource("Resource_w23nx"), SubResource("Resource_ol1pa"), SubResource("Resource_mdpg3"), SubResource("Resource_c5kur"),SubResource("Resource_3naur"),SubResource("Resource_3nbur")])
 special_thanks = Array[ExtResource("3_ksngi")]([SubResource("Resource_daahu"), SubResource("Resource_m42v0"), SubResource("Resource_bsh7l"), SubResource("Resource_id6o1"), SubResource("Resource_ohm68")])
 title = "Credits"
 body = ""
