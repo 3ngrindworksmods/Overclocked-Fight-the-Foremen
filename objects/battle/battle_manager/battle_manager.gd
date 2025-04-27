@@ -196,7 +196,7 @@ func someone_died(who: Node3D) -> void:
 	#await Task.delay(15)
 
 
-
+#
 	
 	var check_arrays := [round_actions, round_end_actions]
 	
