@@ -228,10 +228,10 @@ func roll_for_dna() -> void:
 	else:
 		has_forced_dna = true
 	if foreman: 
-		dna = pool.cogs[ pool.cogs.size() - 2]
+		dna = Globals.foreman_dna
 		skelecog = true
 	if not foreman and Util.floor_number < 4:
-		if dna == pool.cogs[ pool.cogs.size() - 2]:
+		if dna == Globals.foreman_dna
 			print("changed a mingler into a two face 😭")
 			dna = pool.cogs[ pool.cogs.size() - 3]
 	#dna = Globals.foreman_dna

@@ -31,13 +31,13 @@ var MUSIC_TRACK: AudioStream = load("res://audio/music/Bossbot_Entry_v2.ogg")
 var unlock_toon := false
 
 ## For battle tracking
-const COG_LEVEL_RANGE := Vector2i(10, 12)
+const COG_LEVEL_RANGE := Vector2i(11, 13)
 var boss_one_choice: CogDNA
 var boss_two_choice: CogDNA
 
 var boss_one_alive := true
 var boss_two_alive := true
-var elevator_cooldown = 3
+var elevator_cooldown = 1
 var darkened_sky := false
 
 func _ready() -> void:

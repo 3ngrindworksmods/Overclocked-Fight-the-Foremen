@@ -21,15 +21,17 @@ func on_action_started(action: BattleAction) -> void:
 	if action is ToonAttack:
 		turns_used += 1
 		if turns_used % activate_turn == 0:
+			var bonus_dmg = 0
 			if action.targets.size() == 1:
-				var bonus_dmg: int 
+				bonus_dmg = int(action.targets[0].stats.hp * 0.15)
 				#bonus_dmg =  int(action.targets[0].stats.hp * 0.1)
 				#action.damage += bonus_dmg
-				action.targets[0].stats.hp -= int(action.main_target.stats.hp * 0.15)
+				action.targets[0].stats.hp -= action.targets[0].stats.hp * 0.15
 			else:
 				if action.main_target != null:
+						bonus_dmg = int(action.main_target.stats.hp * 0.15)
 						action.main_target.stats.hp -= int(action.main_target.stats.hp * 0.15)
-			action.store_boost_text("Strange Energy!", Color(0.4, 1.0, 0.7))  # Alien green
+			action.store_boost_text(str(bonus_dmg) + " HP disappeared!", Color(0.4, 1.0, 0.7))  # Alien green
 
 func refresh_turns() -> void:
 	#irrelevant

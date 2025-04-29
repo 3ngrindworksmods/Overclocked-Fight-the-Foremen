@@ -184,7 +184,7 @@ func someone_died(who: Node3D) -> void:
 		var cog = cogs[i]
 		if not cog.foreman:
 			continue
-		await force_unlure_foreman(cog)
+		force_unlure_foreman(cog)
 		#await sleep(0.05)
 		cog.special_attack = true
 		var attack := get_cog_attack(cog)

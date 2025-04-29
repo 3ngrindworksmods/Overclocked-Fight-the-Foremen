@@ -106,7 +106,7 @@ func generate_floor() -> void:
 	#print("total batlles:", total_battles)
 	rooms_remaining = [total_battles, total_rooms - total_battles]
 
-	if floor_rooms.special_rooms and RandomService.randf_channel('room_logic') > 10.001: # was 0.8 guarantted special room
+	if floor_rooms.special_rooms and RandomService.randf_channel('room_logic') > 0.001: # was 0.8 guarantted special room now
 		# 50% chance to add a "special room" to the pool
 		var sr_idx := RandomService.randi_range_channel('room_logic', 1, floor_rooms.special_rooms.size()) - 1
 		print('Adding special room: %s' % floor_rooms.special_rooms[sr_idx].room.get_state().get_node_name(0))
