@@ -41,6 +41,7 @@ var combo_damage_actions := [] # Stores combo damage actions to process
 var have_combo_damage = false
 var bellow = false
 var start_cog_size = 0
+var multiple_fore_deaths = false
 
 ## Signals
 signal s_focus_char(character: Node3D)
@@ -179,12 +180,15 @@ func someone_died(who: Node3D) -> void:
 	# Remove from cog array if is cog
 	if who is Cog and who in cogs:
 		cogs.remove_at(cogs.find(who))
-
+	print(cogs.size(), cogs)
 	for i in range(cogs.size() - 1, -1, -1):
 		var cog = cogs[i]
-		if not cog.foreman:
+		if not cog.foreman or cog.stats.hp < 1:
 			continue
-		force_unlure_foreman(cog)
+		if multiple_fore_deaths:
+			force_unlure_foreman(cog)
+		else:
+			await force_unlure_foreman(cog)
 		#await sleep(0.05)
 		cog.special_attack = true
 		var attack := get_cog_attack(cog)
@@ -193,10 +197,11 @@ func someone_died(who: Node3D) -> void:
 			attack.ActionTarget.SELF
 			if round_actions.size() > 0: inject_battle_action(attack, 0)
 			else : inject_end_battle_action(attack, 0)
+	
 	#await Task.delay(15)
 
 
-#
+
 	
 	var check_arrays := [round_actions, round_end_actions]
 	
@@ -334,12 +339,15 @@ func check_pulses(targets):
 	for target in targets:
 		if is_target_dead(target):
 			dead_guys.append(target)
+	if dead_guys.size() >= 2:
+		multiple_fore_deaths = true
 	for i in dead_guys.size():
 		await someone_died(dead_guys[i])
 		if i < dead_guys.size()-1:
 			kill_someone(dead_guys[i])
 		else:
 			await kill_someone(dead_guys[i])
+	multiple_fore_deaths = false # setting it back to false after foreman checks
 
 func sleep(seconds: float):
 	await get_tree().create_timer(seconds).timeout
